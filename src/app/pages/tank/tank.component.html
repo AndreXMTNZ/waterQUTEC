@@ -1,0 +1,132 @@
+<ion-header>
+    <ion-toolbar>
+        
+        <ion-title>
+            <ion-label>Water Quality</ion-label>
+            <ion-icon name="water"></ion-icon>
+
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row class="ion-justify-content-center">
+            <ion-col sizeXs="12" sizsSm="11" sizeMd="10" sizeLg="8" sizeXl="6">
+                
+                <ion-segment (ionChange) = "segmentChanged($event)">
+                    <ion-segment-button value = "auto">
+                        <ion-label>Automatico</ion-label>
+                    </ion-segment-button>
+                    <!--<ion-segment-button value = "manual">
+                        <ion-label>Manual</ion-label>
+                    </ion-segment-button>
+                    <ion-segment-button value = "test">
+                        <ion-label>Prueba</ion-label>
+                    </ion-segment-button>-->
+                </ion-segment>
+            
+                <ion-card *ngIf="seccion == 'auto'">
+                    <!-- Temperatura -->
+                    <ion-item>
+                        <ion-icon slot="start" name="thermometer" color="primary"></ion-icon>
+                        
+                        <ion-item>
+                            <ion-label>
+                                <strong>Temp </strong>{{mediciones}} °C
+                            </ion-label>
+                        </ion-item>
+                    </ion-item>
+            
+                    <!-- TDS -->
+                    <ion-item>
+                        <!--<ion-icon name="bar-chart-outline"></ion-icon>-->
+                        <ion-icon slot="start" name="eyedrop-outline" color="primary"></ion-icon>
+                        <ion-item>
+                            <ion-label>
+                                <strong>pH </strong>{{tds}} 
+                            </ion-label>
+                        </ion-item>
+                    </ion-item>
+
+                    <!-- Componente tarjeta TEMP -->
+                    <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Valores de Temperatura</ion-card-title>
+                          <ion-card-subtitle>Escala de valores</ion-card-subtitle>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                            <!-- Tarjeta fria -->
+                            <ion-card color="secondary">
+                                <ion-card-header>
+                                  <ion-card-title>Frio</ion-card-title>
+                                  <ion-card-subtitle>Menor a 23°C</ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+                            <!-- Tarjeta normal -->
+                            <ion-card color="success">
+                                <ion-card-header>
+                                  <ion-card-title>Normal</ion-card-title>
+                                  <ion-card-subtitle>23°C a 27°C</ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+
+                            <!-- Tarjeta caliente -->
+                            <ion-card color="danger">
+                                <ion-card-header>
+                                  <ion-card-title>Caliente</ion-card-title>
+                                  <ion-card-subtitle>Mayor a 27°C</ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+                            
+                        </ion-card-content>
+                    </ion-card>
+                    
+                    <!-- Componente tarjeta pH -->
+                    <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Valores de pH</ion-card-title>
+                          <ion-card-subtitle>Escala de valores</ion-card-subtitle>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                            <!-- Tarjeta fria -->
+                            <ion-card color="danger">
+                                <ion-card-header>
+                                  <ion-card-title>pH Acido </ion-card-title>
+                                  <ion-card-subtitle>Valores de 6 a 0 de pH</ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+                            <!-- Tarjeta neutro -->
+                            <ion-card color="success">
+                                <ion-card-header>
+                                  <ion-card-title>pH Neutro</ion-card-title>
+                                  <ion-card-subtitle>Valores de 6.5 a 7.5 de pH</ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+
+                            <!-- Tarjeta caliente -->
+                            <ion-card color="tertiary">
+                                <ion-card-header>
+                                  <ion-card-title>pH Alcalino</ion-card-title>
+                                  <ion-card-subtitle>Valores de 8 a 14 de pH</ion-card-subtitle>
+                                </ion-card-header>
+                            </ion-card>
+                            
+                        </ion-card-content>
+                    </ion-card>
+                    
+            
+                    </ion-card>
+            
+                <!--<
+                </ion-card>-->
+            
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
